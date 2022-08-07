@@ -1,6 +1,6 @@
 import './App.css';
 import {
-  BrowserRouter as Router,
+  BrowserRouter,
   Switch,
   Route,
   Redirect
@@ -11,8 +11,16 @@ import Page from './components/page/Page'
 function App() {
   //uuid package generates random ids
   return (
-    <Page/>
-
+    <BrowserRouter>
+    <Switch>
+      <Route exact path="/">
+        <Redirect to={"/documents/${uuidV4()}"}></Redirect>
+      </Route>
+      <Route  path="/documents/:id">
+        <Page/>
+      </Route>
+    </Switch>
+    </BrowserRouter>
   );
 }
 

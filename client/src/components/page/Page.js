@@ -12,6 +12,7 @@ function Page(){
     const [socket,setSocket] = useState();
     const [input,setInput] = useState();
     const [userDoc,setUserDoc] = useState();
+    const {id: documentId} = useParams();
 
     useEffect(()=>{
         setUserDoc(document.getElementById('inputTextArea'))
@@ -41,7 +42,14 @@ function Page(){
         socket.on("receive-changes",handleUpdate)
     },[socket])
 
+    useEffect(()=>{
+        if(socket==null) return
+        // socket.once("load-document",document=>{
+        //     setInput(document);
+        // });
+        socket.emit('get-document',documentId);
 
+    },[socket,input,documentId])
     
     function handleUpdate(ip){
         if(socket==null) return;
