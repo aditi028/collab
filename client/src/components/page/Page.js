@@ -20,7 +20,8 @@ function Page(){
 
     useEffect(()=>{
         //handles -> create and remove socket connection
-        const s = io("http://localhost:3001"); 
+        let serverUrl = "http://localhost:3001" || "https://dashboard.heroku.com/apps/collab-live-server";
+        const s = io(serverUrl); 
         setSocket(s);
         return () => {
             //clear everything up, which was set in useEffect.
