@@ -1,6 +1,6 @@
 const io = require('socket.io')(3001,{
     cors:{
-        origin:'http://localhost:3000',
+        origin:'http://localhost:3000' || 'https://collab-live-client.herokuapp.com',
         methods: ['GET','POST']
     }
 })
