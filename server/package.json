@@ -4,10 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "devStart": "nodemon server.js",
+    "devStart": "nodemon server.js -p $PORT",
     "test": "echo \"Error: no test specified\" && exit 1",
     "postinstall": "npm run build",
-    "start": "node server.js"
+    "start": "node server.js -p $PORT" 
   },
   "keywords": [],
   "author": "",
