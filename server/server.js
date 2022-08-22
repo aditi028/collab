@@ -1,4 +1,4 @@
-const prt = 3001 || process.env.PORT;
+let prt = 3001 || process.env.PORT;
 
 const io = require('socket.io')(prt ,{
     cors:{
