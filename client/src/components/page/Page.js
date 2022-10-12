@@ -5,8 +5,6 @@ import {io} from 'socket.io-client'
 
 import {useParams} from 'react-router-dom'
 
-
-
 function Page(){
 
     const [socket,setSocket] = useState();
@@ -20,8 +18,9 @@ function Page(){
 
     useEffect(()=>{
         //handles -> create and remove socket connection
-        let serverUrl = "http://localhost:3001" || "https://dashboard.heroku.com/apps/collab-live-server";
-        const s = io(serverUrl); 
+        let serverUrl = "http://localhost:3001";
+        // let serverUrl = "https://dashboard.heroku.com/apps/collab-live-server";
+        const s = io(serverUrl);
         setSocket(s);
         return () => {
             //clear everything up, which was set in useEffect.

@@ -1,8 +1,9 @@
-const PORT = process.env.PORT || 3001;
+const PORT = 3001;
 
 const io = require('socket.io')(PORT ,{
     cors:{
-        origin:'http://localhost:3000' || 'https://collab-live-client.herokuapp.com',
+        origin:'http://localhost:3000',
+        // origin: 'https://collab-live-client.herokuapp.com',
         methods: ['GET','POST']
     }
 })
